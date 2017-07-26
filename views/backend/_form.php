@@ -31,6 +31,7 @@ use dosamigos\tinymce\TinyMce;
             ],
             'toolbar' => 'undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
             'file_picker_callback' => alexantr\elfinder\TinyMCE::getFilePickerCallback(Yii::$app->urlManager->createUrl(['elfinder/tinymce'])),
+            'extended_valid_elements' => 'b,i,b/strong,i/em',
         ],
     ]); ?>
 

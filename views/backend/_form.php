@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
+use fileManager\Module as FileManagerModule
 
 ?>
 
@@ -30,7 +31,7 @@ use dosamigos\tinymce\TinyMce;
                 'insertdatetime media table contextmenu paste image',
             ],
             'toolbar' => 'undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
-            'file_picker_callback' => alexantr\elfinder\TinyMCE::getFilePickerCallback(Yii::$app->urlManager->createUrl(['elfinder/tinymce'])),
+            'file_picker_callback' => alexantr\elfinder\TinyMCE::getFilePickerCallback(Yii::$app->urlManager->createUrl([FileManagerModule::$instance->id . '/elfinder/tinymce'])),
             'extended_valid_elements' => 'b,i,b/strong,i/em',
         ],
     ]); ?>

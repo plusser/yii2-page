@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace page\controllers;
 
@@ -11,7 +11,7 @@ class BackendController extends CRUDController
 
     public function getModelClass()
     {
-        return Page::className();
+        return Page::class;
     }
 
     public function getModelSearch()

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace page\components;
 
@@ -13,7 +13,7 @@ class PageUrlRule extends UrlRule
 
     public function parseRequest($manager, $request)
     {
-        return is_null($model = Page::findOne(trim($request->pathInfo, '/'))) ? FALSE : [$this->route, ['model' => $model, ]];
+        return is_null($model = Page::findOne(trim($request->pathInfo, '/'))) ? false : [$this->route, ['model' => $model, ]];
     }
 
 }

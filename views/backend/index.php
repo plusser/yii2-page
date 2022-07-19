@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?php echo Html::encode($this->title); ?></h1>
 
-    <p><?php echo $this->context->getCreateButton(); ?></p>
+    <p><?php echo $this->context->getCreateButton('Создать страницу'); ?></p>
 
 <?php Pjax::begin(); ?>
 

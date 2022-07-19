@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
-use fileManager\Module as FileManagerModule
+use fileManager\Module as FileManagerModule;
 
 ?>
 
@@ -21,7 +21,7 @@ use fileManager\Module as FileManagerModule
 
     <?php echo $form->field($model, 'layout')->dropDownList($this->context->module->layoutList); ?>
 
-    <?php echo $form->field($model, 'content')->widget(TinyMce::className(), [
+    <?php echo $form->field($model, 'content')->widget(TinyMce::class, [
         'options' => ['rows' => 12],
         'language' => 'ru',
         'clientOptions' => [

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace page;
 
@@ -11,7 +11,7 @@ class Module extends \yii\base\Module
     public $frontendRoute = 'page/frontend/page';
     public $layoutList = [];
     public $patternPrefix = 'page';
-    public $backendMode = FALSE;
+    public $backendMode = false;
 
     public static $instance;
 
@@ -27,11 +27,20 @@ class Module extends \yii\base\Module
                 ['class' => 'yii\web\UrlRule', 'pattern' => $this->patternPrefix . '/update/<id>', 'route' => $this->id . '/backend/update', ],
                 ['class' => 'yii\web\UrlRule', 'pattern' => $this->patternPrefix . '/delete/<id>', 'route' => $this->id . '/backend/delete', ],
             ] : [
-                ['class' => PageUrlRule::className(), 'pattern' => FALSE, 'route' => $this->frontendRoute, ],
-            ], FALSE);
+                ['class' => PageUrlRule::class, 'pattern' => false, 'route' => $this->frontendRoute, ],
+            ], false);
+        }
+
+        if($app instanceof yii\console\Application){
+            if(!isset($app->controllerMap['migrate'])){
+                $app->controllerMap['migrate'] = [
+                    'class' => 'yii\console\controllers\MigrateController',
+                ];
+            }
+
+            $app->controllerMap['migrate']['migrationNamespaces'][] = 'page\migrations';
         }
 
         static::$instance = $this;
     }
-
 }

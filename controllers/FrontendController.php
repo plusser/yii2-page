@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace page\controllers;
 
@@ -12,7 +12,7 @@ class FrontendController extends Controller
     {
         return [
             'page' => [
-                'class' => PageAction::className(),
+                'class' => PageAction::class,
             ],
         ];
     }

@@ -20,3 +20,32 @@ or add
 ```
 
 to the require section of your `composer.json` file.
+
+Simple configuration:
+
+1. Add page module to your web and console config.
+
+```
+[
+  ...
+    'bootstrap' => [ ..., 'page', ]
+    'modules' => [
+      ...
+        'page' => [
+            'class' => 'page\Module',
+            //'backendMode' => true, # for backend only
+            'layoutList' => [
+                '@frontend/views/layouts/main' => 'Main',
+            ],
+        ],
+      ...
+    ],
+  ...
+]
+```
+2. Run migrations:
+
+```
+php yii migrate/up
+
+```

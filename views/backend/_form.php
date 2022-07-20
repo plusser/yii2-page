@@ -22,17 +22,20 @@ use fileManager\Module as FileManagerModule;
     <?php echo $form->field($model, 'layout')->dropDownList($this->context->module->layoutList); ?>
 
     <?php echo $form->field($model, 'content')->widget(TinyMce::class, [
-        'options' => ['rows' => 12],
-        'language' => 'ru',
+        'options'       => ['rows' => 12],
+        'language'      => 'ru',
         'clientOptions' => [
-            'plugins' => [
-                'advlist autolink lists link charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen textcolor',
-                'insertdatetime media table contextmenu paste image',
+            'relative_urls'             => false,
+            'remove_script_host'        => true,
+            'convert_urls'              => true,
+            'file_picker_callback'      => \alexantr\elfinder\TinyMCE::getFilePickerCallback(Yii::$app->urlManager->createUrl([FileManagerModule::$instance->id . '/elfinder/tinymce'])),
+            'extended_valid_elements'   => 'b,i,b/strong,i/em',
+            'toolbar'                   => 'undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
+            'plugins'                   => [
+                'advlist', 'autolink', 'lists', 'link', 'charmap', 'print', 'preview', 'anchor',
+                'searchreplace', 'visualblocks', 'code', 'fullscreen', 'textcolor',
+                'insertdatetime', 'media', 'table', 'contextmenu', 'paste', 'image',
             ],
-            'toolbar' => 'undo redo | styleselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
-            'file_picker_callback' => alexantr\elfinder\TinyMCE::getFilePickerCallback(Yii::$app->urlManager->createUrl([FileManagerModule::$instance->id . '/elfinder/tinymce'])),
-            'extended_valid_elements' => 'b,i,b/strong,i/em',
         ],
     ]); ?>
 
